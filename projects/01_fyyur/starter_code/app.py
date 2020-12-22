@@ -12,6 +12,7 @@ import logging
 from logging import Formatter, FileHandler
 from flask_wtf import Form
 from forms import *
+from flask_migrate import Migrate
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
@@ -22,13 +23,13 @@ app.config.from_object('config')
 db = SQLAlchemy(app)
 
 # TODO: connect to a local postgresql database
-
+migrate = Migrate(app, db)
 #----------------------------------------------------------------------------#
 # Models.
 #----------------------------------------------------------------------------#
 
 class Venue(db.Model):
-    __tablename__ = 'Venue'
+    __tablename__ = 'venue'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
@@ -38,6 +39,8 @@ class Venue(db.Model):
     phone = db.Column(db.String(120))
     image_link = db.Column(db.String(500))
     facebook_link = db.Column(db.String(120))
+    show = db.relationship('Show', backref='venue', lazy=True)
+    #Show = db.relationship("Show", back_populates="Venue")
 
     # TODO: implement any missing fields, as a database migration using Flask-Migrate
 
@@ -45,18 +48,33 @@ class Artist(db.Model):
     __tablename__ = 'Artist'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
+    name = db.Column(db.String(120))
     city = db.Column(db.String(120))
     state = db.Column(db.String(120))
     phone = db.Column(db.String(120))
-    genres = db.Column(db.String(120))
+    genres = db.Column("genres",db.ARRAY(db.String()))
     image_link = db.Column(db.String(500))
     facebook_link = db.Column(db.String(120))
+    show = db.relationship('Show', backref='Artist', lazy=True)
+    #Show = db.relationship("Show", back_populates="Artist")
+
+    
 
     # TODO: implement any missing fields, as a database migration using Flask-Migrate
 
 # TODO Implement Show and Artist models, and complete all model relationships and properties, as a database migration.
-
+class Show(db.Model):
+       __tablename__ = 'Show'
+       show_id=db.Column(db.Integer, primary_key=True)
+       Venue_id=db.Column(db.Integer, db.ForeignKey('venue.id'), nullable=True)
+       Artist_id= db.Column(db.Integer, db.ForeignKey('Artist.id'), nullable=True)
+       start_time=db.Column(db.String(120))
+      #Venue_id= db.Column(db.Integer,db.ForeignKey('Venue.id'), primary_key=True)
+      #Artist_id = db.Column(db.Integer,db.ForeignKey('Artist.id'), primary_key=True)
+     #start_time = db.Column(String(50))
+     #Venue = db.relationship("Artist", back_populates=" Venue")
+     #Artist = db.relationship("Venue", back_populates="Artist")
+    #db.create_all()
 #----------------------------------------------------------------------------#
 # Filters.
 #----------------------------------------------------------------------------#
@@ -67,11 +85,11 @@ def format_datetime(value, format='medium'):
       format="EEEE MMMM, d, y 'at' h:mma"
   elif format == 'medium':
       format="EE MM, dd, y h:mma"
-  return babel.dates.format_datetime(date, format)
+  return babel.dates.format_datetime(date, format,locale='en')
 
 app.jinja_env.filters['datetime'] = format_datetime
 
-#----------------------------------------------------------------------------#
+#---------------------------------------------------------------------------#
 # Controllers.
 #----------------------------------------------------------------------------#
 
@@ -87,27 +105,27 @@ def index():
 def venues():
   # TODO: replace with real venues data.
   #       num_shows should be aggregated based on number of upcoming shows per venue.
-  data=[{
-    "city": "San Francisco",
-    "state": "CA",
-    "venues": [{
-      "id": 1,
-      "name": "The Musical Hop",
-      "num_upcoming_shows": 0,
-    }, {
-      "id": 3,
-      "name": "Park Square Live Music & Coffee",
-      "num_upcoming_shows": 1,
-    }]
-  }, {
-    "city": "New York",
-    "state": "NY",
-    "venues": [{
-      "id": 2,
-      "name": "The Dueling Pianos Bar",
-      "num_upcoming_shows": 0,
-    }]
-  }]
+  #data=[{
+   # "city": "San Francisco",
+    #"state": "CA",
+    #"venues": [{
+     # "id": 1,
+      #"name": "The Musical Hop",
+      #"num_upcoming_shows": 0,
+    #}, {
+     # "id": 3,
+      #"name": "Park Square Live Music & Coffee",
+      #"num_upcoming_shows": 1,
+    #}]
+  #}, {
+   # "city": "New York",
+    #"state": "NY",
+    #"venues": [{
+     # "id": 2,
+      #"name": "The Dueling Pianos Bar",
+      #"num_upcoming_shows": 0,
+    #}]
+  #}]
   return render_template('pages/venues.html', areas=data);
 
 @app.route('/venues/search', methods=['POST'])
