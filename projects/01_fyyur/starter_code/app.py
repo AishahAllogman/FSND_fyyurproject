@@ -1,7 +1,7 @@
 #----------------------------------------------------------------------------#
 # Imports
 #----------------------------------------------------------------------------#
-
+from collections import Counter
 import json
 import dateutil.parser
 import babel
@@ -109,29 +109,65 @@ def index():
  
 def venues():
   data = []
-  venues = Venue.query.group_by(Venue.id,Venue.city, Venue.state).all()
+  venues = Venue.query.all()
   data2 = []
   citystate=" "
-
+  city_state=" "
+  data2=venues
+  num=len(data2)
+ 
   for venue in venues:
-  
-    if citystate==Venue.city+Venue.state:
-      data[len(data) - 1]["venues"].append({
+    if venue.city==citystate :
+     if venue.state==city_state :
+        data.append({
+       "city":venue.city,
+       "state":venue.state,
         "id":venue.id,
         "name":venue.name
-      })
-    else :
-      citystate=Venue.city+Venue.state
-      data.append({
+          })     
+  
+     else :
+        venue.state=city_state 
+        data.append({
         "city":venue.city,
-         "state":venue.state,
-         "venues":data2
-      })
+        "state":venue.state,
+        "id":"",
+        "name":"",
+        "venues":data
+        }) 
+    else :
+       venue.city=citystate 
+       data.append({
+       "city":venue.city,
+       "state":venue.state,
+       "id":"",
+       "name":"",
+       "venues":data
+        })
         
 
   return render_template('pages/venues.html', areas=data)
 
-
+@app.route('/venues/search', methods=['POST'])
+def search_venues():
+  # TODO: implement search on artists with partial string search. Ensure it is case-insensitive.
+  # seach for Hop should return "The Musical Hop".
+  # search for "Music" should return "The Musical Hop" and "Park Square Live Music & Coffee"
+  search_criteria=request.form.get('search_term', '')
+  search=Venue.query.filter(Venue.name.ilike('%'+search_criteria+'%')).all()
+  modelcount= len(search)
+  for numsearch in search: 
+      mydata.append({
+      "id":numsearch.id,
+      "name":numsearch.name,
+      "num_upcoming_shows": 0,
+    })
+  
+  response={
+    "count":len(search),
+    "data":mydata
+    }
+  return render_template('pages/search_venues.html', results=response, search_term=request.form.get('search_term', ''))
 #  Create Venue
 #  ----------------------------------------------------------------
 
@@ -140,10 +176,10 @@ def create_venue_form():
   form = VenueForm()
   return render_template('forms/new_venue.html', form=form)
 
-@app.route('/venues/create', methods=['POST'])
+@app.route('/venues/create', methods=['Post'])
 def create_venue_submission():
-    error = False
-    
+    form = VenueForm()
+    error=False
     try:
       newvenue = Venue(
       name=request.form['name'],
@@ -166,12 +202,13 @@ def create_venue_submission():
         error = True
         print(sys.exc_info())
     finally:
-        db.session.close()
-    if error:
-        flash('Venue ' + request.form['name'] + ' unsuccessfully listed!')
-    else:
-      flash('Venue ' + request.form['name'] + ' was successfully listed!')
-      return render_template('pages/home.html')
+      db.session.close()
+      if error:
+        print ("error")
+        flash('Venue' + request.form['name'] + ' unsuccessfully listed!')
+      else:
+        flash('Venue' + request.form['name'] + ' was successfully listed!')
+        return render_template('pages/home.html')
         
   # TODO: insert form data as a new Venue record in the db, instead
   # TODO: modify data to be the data object returned from db insertion
@@ -191,6 +228,7 @@ def delete_venue(venue_id):
   # BONUS CHALLENGE: Implement a button to delete a Venue on a Venue Page, have it so that
   # clicking that button delete it from the db then redirect the user to the homepage
   return None
+
 
 #  Artists
 #  ----------------------------------------------------------------
@@ -217,14 +255,22 @@ def search_artists():
   # TODO: implement search on artists with partial string search. Ensure it is case-insensitive.
   # seach for "A" should return "Guns N Petals", "Matt Quevado", and "The Wild Sax Band".
   # search for "band" should return "The Wild Sax Band".
-  response={
-    "count": 1,
-    "data": [{
-      "id": 4,
-      "name": "Guns N Petals",
+  search_criteria=request.form.get('search_term', '')
+  search=Artist.query.filter(Artist.name.ilike('%'+search_criteria+'%')).all()
+  modelcount= len(search)
+  mydata=[]
+  for numsearch in search: 
+    mydata.append({
+      "id":numsearch.id,
+      "name":numsearch.name,
       "num_upcoming_shows": 0,
-    }]
-  }
+    })
+  
+  response={
+    "count":len(search),
+    "data":mydata
+    }
+
   return render_template('pages/search_artists.html', results=response, search_term=request.form.get('search_term', ''))
 
 @app.route('/artists/<int:artist_id>')
@@ -365,10 +411,12 @@ def edit_venue_submission(venue_id):
 @app.route('/artists/create', methods=['GET'])
 def create_artist_form():
   form = ArtistForm()
+
   return render_template('forms/new_artist.html', form=form)
 
 @app.route('/artists/create', methods=['POST'])
 def create_artist_submission():
+ 
   # called upon submitting the new artist listing form
   # TODO: insert form data as a new Venue record in the db, instead
   # TODO: modify data to be the data object returned from db insertion
@@ -385,12 +433,16 @@ def create_artist_submission():
 
 @app.route('/shows')
 def shows():
+  Shows = db.session.query(Show).all()
+ 
+  return render_template('pages/shows.html', shows=data)
   # displays list of shows at /shows
   # TODO: replace with real venues data.
   #       num_shows should be aggregated based on number of upcoming shows per venue.
 
-  data = Show.query.all()
-  return render_template('pages/shows.html', shows=data)
+
+
+
 
 @app.route('/shows/create')
 def create_shows():
@@ -400,11 +452,33 @@ def create_shows():
 
 @app.route('/shows/create', methods=['POST'])
 def create_show_submission():
+  form = ShowForm()
+  error=False
+  try:
+    newshow = Show(
+    Venue_id=request.form['Venue_id'],
+    Artist_id=request.form['Artist_id'],
+    start_time=request.form.form['start_time']
+    )
+    db.session.add(newshow)
+    db.session.commit()
+
+  except():
+    db.session.rollback()
+    error = True
+    print(sys.exc_info())
+  finally:
+    db.session.close()
+    if error :
+      flash('Show unsuccessfully listed!')
+    else:
+      flash('Show was successfully listed!')
+      return render_template('pages/home.html')
   # called to create new shows in the db, upon submitting new show listing form
   # TODO: insert form data as a new Show record in the db, instead
 
   # on successful db insert, flash success
-  flash('Show was successfully listed!')
+ # flash('Show was successfully listed!')
   # TODO: on unsuccessful db insert, flash an error instead.
   # e.g., flash('An error occurred. Show could not be listed.')
   # see: http://flask.pocoo.org/docs/1.0/patterns/flashing/
