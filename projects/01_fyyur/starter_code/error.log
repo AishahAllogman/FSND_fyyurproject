@@ -1,1 +1,212 @@
 
+2020-12-27 00:08:28,032 INFO: errors [in /Users/aisha/FSND/projects/01_fyyur/starter_code/app.py:539]
+2020-12-27 00:27:48,812 INFO: errors [in /Users/aisha/FSND/projects/01_fyyur/starter_code/app.py:539]
+2020-12-27 00:27:54,359 ERROR: Exception on /venues [GET] [in /Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/app.py", line 71, in venues
+    "num_up_coming_show":Numshow
+NameError: name 'Numshow' is not defined
+2020-12-27 00:27:56,528 ERROR: Exception on /venues [GET] [in /Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/app.py", line 71, in venues
+    "num_up_coming_show":Numshow
+NameError: name 'Numshow' is not defined
+2020-12-27 00:28:37,106 ERROR: Exception on /venues [GET] [in /Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/app.py", line 71, in venues
+    "num_up_coming_show":Numshow
+NameError: name 'Numshow' is not defined
+2020-12-27 00:28:37,922 ERROR: Exception on /venues [GET] [in /Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/app.py", line 71, in venues
+    "num_up_coming_show":Numshow
+NameError: name 'Numshow' is not defined
+2020-12-27 00:28:43,436 ERROR: Exception on /venues [GET] [in /Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/app.py", line 71, in venues
+    "num_up_coming_show":Numshow
+NameError: name 'Numshow' is not defined
+2020-12-27 00:28:46,100 ERROR: Exception on /venues [GET] [in /Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/app.py", line 71, in venues
+    "num_up_coming_show":Numshow
+NameError: name 'Numshow' is not defined
+2020-12-27 00:28:49,237 ERROR: Exception on /venues [GET] [in /Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/app.py", line 71, in venues
+    "num_up_coming_show":Numshow
+NameError: name 'Numshow' is not defined
+2020-12-27 00:31:07,518 ERROR: Exception on /venues [GET] [in /Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/app.py", line 71, in venues
+    })
+NameError: name 'Numshow' is not defined
+2020-12-27 00:31:09,043 ERROR: Exception on /venues [GET] [in /Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/app.py", line 71, in venues
+    })
+NameError: name 'Numshow' is not defined
+2020-12-27 00:32:16,186 INFO: errors [in /Users/aisha/FSND/projects/01_fyyur/starter_code/app.py:536]
+2020-12-27 00:36:42,212 INFO: errors [in /Users/aisha/FSND/projects/01_fyyur/starter_code/app.py:536]
+2020-12-27 01:03:39,231 INFO: errors [in /Users/aisha/FSND/projects/01_fyyur/starter_code/app.py:536]
+2020-12-27 01:13:40,778 INFO: errors [in /Users/aisha/FSND/projects/01_fyyur/starter_code/app.py:536]
+2020-12-27 01:13:42,980 ERROR: Exception on /shows [GET] [in /Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/app.py", line 458, in shows
+    Shows = Show.query.get().all()
+TypeError: get() missing 1 required positional argument: 'ident'
+2020-12-27 01:13:46,686 ERROR: Exception on /shows [GET] [in /Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/app.py", line 458, in shows
+    Shows = Show.query.get().all()
+TypeError: get() missing 1 required positional argument: 'ident'
+2020-12-27 01:13:48,816 ERROR: Exception on /shows [GET] [in /Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/env/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/aisha/FSND/projects/01_fyyur/starter_code/app.py", line 458, in shows
+    Shows = Show.query.get().all()
+TypeError: get() missing 1 required positional argument: 'ident'
+2020-12-27 01:16:03,314 INFO: errors [in /Users/aisha/FSND/projects/01_fyyur/starter_code/app.py:536]

@@ -61,16 +61,11 @@ def index():
 def venues():
   data=[]
   venues=Venue.query.group_by(Venue.city,Venue.state,Venue.id) 
-
-  nowtime=datetime.now()
   for venue in venues: 
-    Numshow=Show.query.join(Venue).filter(Show.Venue_id==venue.id).filter(nowtime<Show.start_time).all()
-    num_upcomingshow=len(Numshow)
     data.append({
       "city":venue.city,
       "state":venue.state,
       "venues":Venue.query.filter(Venue.city==venue.city).filter(Venue.state==venue.state).all(),
-      "num_up_coming_show":Numshow
     })
       
   return render_template('pages/venues.html', areas=data)
@@ -460,13 +455,13 @@ def create_artist_submission():
 
 @app.route('/shows')
 def shows():
-  Shows = Show.query.join(Venue,Artist).all()
+  Shows = db.session.query(Show).all()
   data=[]
   for s in Shows:
     data.append({ 
-    "venue_id":s.Venue_id,
+    "venue_id":s.Venue.id,
     "venue_name":s.Venue.name,
-    "artist_id":s.Artist_id,
+    "artist_id":s.Artist.id,
     "artist_name":s.Artist.name,
     "artist_iamge_link":s.Artist.image_link,
     "start_time":str(s.start_time)
